@@ -14,7 +14,7 @@ SCG.Library.LinkedList = (function($) {
 				length++;
 			} else {
 				var prevTail = TAIL;
-				TAIL = new LinkedNode();
+				TAIL = new SCG.Library.LinkedNode();
 				TAIL.setValue(val);
 				prevTail.setNextNode(TAIL);
 			}
