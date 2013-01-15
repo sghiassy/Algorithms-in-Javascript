@@ -19,20 +19,41 @@ SCG.Library.LinkedList = (function($) {
 				prevTail.setNextNode(TAIL);
 			}
 		};
-		
-		this.deleteNodeByIndex = function(index) {
-			var curPointer = HEAD;
-			var prevPointer = HEAD;
-			
-			for(var i = 0; i <= index; i++) {
-				curPointer = curPointer.getNextNode();
 
-				if(curPointer == undefined) {
-					break;
-				} else if (i != 0) {
+		this.pop = function() {
+			if(HEAD == TAIL) {
+				return undefined;
+			} else {
+				var curPointer = HEAD.getNextNode();
+				var followingPointer = HEAD;
+				
+				while(curPointer != TAIL) {
+					curPointer = curPointer.getNextNode();
+					followingPointer = followingPointer.getNextNode();
+				}
+				
+				TAIL = followingPointer;
+			}
+		}
+
+		this.deleteNodeByIndex = function(index) {
+			var curPointer = HEAD.getNextNode();
+			var prevPointer = HEAD;
+			var i = 0;
+
+			while(curPointer != undefined) {
+				i++;
+				
+				if(i == index) {
+					var futurePointer = curPointer.getNextNode();
+					prevPointer.setNextNode(futurePointer);
+				} else {
+					curPointer = curPointer.getNextNode();
 					prevPointer = prevPointer.getNextNode();
 				}
 			}
+
+			
 		};
 
 		this.print = function() {
@@ -54,6 +75,10 @@ SCG.Library.LinkedList = (function($) {
 		this.getTail = function() {
 			return TAIL;
 		}
+
+		this.next = function(curNode) {
+			return curNode.getNextNode();
+		};
 	};
 
 })(jQuery);
