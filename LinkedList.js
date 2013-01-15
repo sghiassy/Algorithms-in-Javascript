@@ -53,6 +53,7 @@ SCG.Library.LinkedList = (function($) {
 				}
 			}
 
+			
 		};
 
 		this.print = function() {
@@ -65,7 +66,7 @@ SCG.Library.LinkedList = (function($) {
 			} while(curPointer.getNextNode() != undefined);
 
 			//If the last charecter on the string is a space. Delete it.
-			if(string[string.legnth-1] == " ") {
+			if(string[string.length-1] == " ") {
 				string.slice(0, string.length - 1);
 			}
 			
@@ -78,7 +79,7 @@ SCG.Library.LinkedList = (function($) {
 
 		this.getTail = function() {
 			return TAIL;
-		}
+		};
 
 		this.next = function(curNode) {
 			return curNode.getNextNode();
