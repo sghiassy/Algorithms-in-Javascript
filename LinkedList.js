@@ -67,7 +67,7 @@ SCG.Library.LinkedList = (function($) {
 
 			//If the last charecter on the string is a space. Delete it.
 			if(string[string.length-1] == " ") {
-				string.slice(0, string.length - 1);
+				string = string.slice(0, string.length - 1);
 			}
 			
 			return string;
