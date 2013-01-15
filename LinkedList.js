@@ -9,6 +9,8 @@ SCG.Library.LinkedList = (function($) {
 		var TAIL = HEAD;
 
 		this.push = function(val) {
+			console.log(val);
+			
 			if(HEAD.getValue() == undefined) {
 				HEAD.setValue(val);
 				length++;
