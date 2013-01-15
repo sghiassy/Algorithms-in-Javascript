@@ -53,17 +53,16 @@ SCG.Library.LinkedList = (function($) {
 				}
 			}
 
-			
 		};
 
 		this.print = function() {
 			var string = String("");
 			var curPointer = HEAD;
-			
-			while(curPointer != TAIL) {
+
+			do {
 				string += curPointer.getValue() + " ";
 				curPointer = curPointer.getNextNode();
-			}
+			} while(curPointer.getNextNode() != undefined);
 
 			//If the last charecter on the string is a space. Delete it.
 			if(string[string.legnth-1] == " ") {
