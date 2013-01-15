@@ -5,7 +5,7 @@ SCG.Library.LinkedList = (function($) {
 	//shared private variables
 
 	return function() {
-		var HEAD = new LinkedNode();
+		var HEAD = new SCG.Libary.LinkedNode();
 		var TAIL = HEAD;
 
 		this.push = function(val) {
