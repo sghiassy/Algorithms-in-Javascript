@@ -26,12 +26,12 @@ SCG.Library.LinkedList = (function($) {
 			} else {
 				var curPointer = HEAD.getNextNode();
 				var followingPointer = HEAD;
-				
+
 				while(curPointer != TAIL) {
 					curPointer = curPointer.getNextNode();
 					followingPointer = followingPointer.getNextNode();
 				}
-				
+
 				TAIL = followingPointer;
 			}
 		}
@@ -57,12 +57,17 @@ SCG.Library.LinkedList = (function($) {
 		};
 
 		this.print = function() {
-			var string = "";
+			var string = String("");
 			var curPointer = HEAD;
 			
 			while(curPointer != TAIL) {
 				string += curPointer.getValue() + " ";
 				curPointer = curPointer.getNextNode();
+			}
+
+			//If the last charecter on the string is a space. Delete it.
+			if(string[string.legnth-1] == " ") {
+				string.slice(0, string.length - 1);
 			}
 			
 			return string;
@@ -85,7 +90,7 @@ SCG.Library.LinkedList = (function($) {
 
 
 SCG.Library.LinkedNode = (function($) {
-	
+
 	//shared private variable
 
 	return function() {
