@@ -1,6 +1,6 @@
 SCG = {Library:{}} || SCG;
 
-SCG.Library.LinkedList = (function($) {
+SCG.Library.LinkedList = (function() {
 
 	//shared private variables
 
@@ -29,12 +29,21 @@ SCG.Library.LinkedList = (function($) {
 				var curPointer = HEAD.getNextNode();
 				var followingPointer = HEAD;
 
-				while(curPointer != TAIL) {
+				while(curPointer.getNextNode() != undefined) {
 					curPointer = curPointer.getNextNode();
 					followingPointer = followingPointer.getNextNode();
+				} 
+
+				if(HEAD.getNextNode() == undefined) {
+					if(TAIL == HEAD) {
+						HEAD.setValue(undefined);
+					} else {
+						TAIL = HEAD;
+					}
 				}
 
 				TAIL = followingPointer;
+				TAIL.setNextNode(undefined);
 			}
 		}
 
@@ -45,7 +54,7 @@ SCG.Library.LinkedList = (function($) {
 
 			while(curPointer != undefined) {
 				i++;
-				
+
 				if(i == index) {
 					var futurePointer = curPointer.getNextNode();
 					prevPointer.setNextNode(futurePointer);
@@ -54,8 +63,6 @@ SCG.Library.LinkedList = (function($) {
 					prevPointer = prevPointer.getNextNode();
 				}
 			}
-
-			
 		};
 
 		this.print = function() {
@@ -65,13 +72,13 @@ SCG.Library.LinkedList = (function($) {
 			do {
 				string += curPointer.getValue() + " ";
 				curPointer = curPointer.getNextNode();
-			} while(curPointer.getNextNode() != undefined);
+			} while(curPointer != undefined);
 
 			//If the last charecter on the string is a space. Delete it.
 			if(string[string.length-1] == " ") {
 				string = string.slice(0, string.length - 1);
 			}
-			
+
 			return string;
 		};
 
@@ -88,10 +95,10 @@ SCG.Library.LinkedList = (function($) {
 		};
 	};
 
-})(jQuery);
+})();
 
 
-SCG.Library.LinkedNode = (function($) {
+SCG.Library.LinkedNode = (function() {
 
 	//shared private variable
 
@@ -115,4 +122,4 @@ SCG.Library.LinkedNode = (function($) {
 			return value;
 		};
 	};
-})(jQuery);
+})();
