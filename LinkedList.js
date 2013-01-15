@@ -19,13 +19,28 @@ SCG.Library.LinkedList = (function($) {
 				prevTail.setNextNode(TAIL);
 			}
 		};
+		
+		this.deleteNodeByIndex = function(index) {
+			var curPointer = HEAD;
+			var prevPointer = HEAD;
+			
+			for(var i = 0; i <= index; i++) {
+				curPointer = curPointer.getNextNode();
+
+				if(curPointer == undefined) {
+					break;
+				} else if (i != 0) {
+					prevPointer = prevPointer.getNextNode();
+				}
+			}
+		};
 
 		this.print = function() {
 			var string = "";
 			var curPointer = HEAD;
 			
 			while(curPointer != TAIL) {
-				string += " " + curPointer.getValue();
+				string += curPointer.getValue() + " ";
 				curPointer = curPointer.getNextNode();
 			}
 			
