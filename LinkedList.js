@@ -1,3 +1,5 @@
+SCG = SCG || {Library:{}};
+
 SCG.Library.LinkedList = (function($) {
 
 	//shared private variables
