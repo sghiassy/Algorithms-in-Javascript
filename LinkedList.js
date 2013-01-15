@@ -1,4 +1,4 @@
-SCG = SCG || {Library:{}};
+SCG = {Library:{}} || SCG;
 
 SCG.Library.LinkedList = (function($) {
 
