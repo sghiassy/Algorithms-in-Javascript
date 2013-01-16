@@ -9,8 +9,7 @@ SCG.Library.LinkedList = (function() {
 		var TAIL = HEAD;
 
 		this.push = function(val) {
-			console.log(val);
-			
+
 			if(HEAD.getValue() == undefined) {
 				HEAD.setValue(val);
 				length++;
@@ -24,7 +23,8 @@ SCG.Library.LinkedList = (function() {
 
 		this.pop = function() {
 			if(HEAD == TAIL) {
-				return undefined;
+				HEAD.setValue(undefined);
+				return HEAD.getValue();
 			} else {
 				var curPointer = HEAD.getNextNode();
 				var followingPointer = HEAD;
@@ -35,32 +35,42 @@ SCG.Library.LinkedList = (function() {
 				} 
 
 				if(HEAD.getNextNode() == undefined) {
-					if(TAIL == HEAD) {
-						HEAD.setValue(undefined);
-					} else {
-						TAIL = HEAD;
-					}
+					TAIL = HEAD;
 				}
 
 				TAIL = followingPointer;
 				TAIL.setNextNode(undefined);
+
+				return curPointer.getValue();
 			}
-		}
+		};
 
-		this.deleteNodeByIndex = function(index) {
-			var curPointer = HEAD.getNextNode();
-			var prevPointer = HEAD;
-			var i = 0;
-
-			while(curPointer != undefined) {
-				i++;
-
-				if(i == index) {
-					var futurePointer = curPointer.getNextNode();
-					prevPointer.setNextNode(futurePointer);
+		this.remove = function(index) {
+			if(index == 0) {
+				if(HEAD.getNextNode() == undefined) {
+					HEAD.setValue(undefined);
 				} else {
-					curPointer = curPointer.getNextNode();
-					prevPointer = prevPointer.getNextNode();
+					HEAD = HEAD.getNextNode();
+				}
+				
+				return true;
+			} else if (index < 0) {
+				return false;
+			} else {
+				var curPointer = HEAD.getNextNode();
+				var prevPointer = HEAD;
+				var i = 0;
+
+				while(curPointer != undefined) {
+					i++;
+
+					if(i == index) {
+						var futurePointer = curPointer.getNextNode();
+						prevPointer.setNextNode(futurePointer);
+					} else {
+						curPointer = curPointer.getNextNode();
+						prevPointer = prevPointer.getNextNode();
+					}
 				}
 			}
 		};
