@@ -52,7 +52,7 @@ SCG.Library.LinkedList = (function() {
 				} else {
 					HEAD = HEAD.getNextNode();
 				}
-				
+
 				return true;
 			} else if (index < 0) {
 				return false;
