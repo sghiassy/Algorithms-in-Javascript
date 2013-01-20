@@ -9,7 +9,7 @@ To run all the tests
 
 ### Linked List
 
-A Linked List
+A swiss army knife Linked List.
 
 [LinkedList.js Source File](http://sghiassy.github.com/library/LinkedList.js "LinkedList.js Source File")
 
