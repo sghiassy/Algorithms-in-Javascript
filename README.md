@@ -5,9 +5,11 @@ This is my collection of JavaScript helper function and data structures. All fil
 ### All
 
 To run all the tests
-[Run all the  unit tests](http://sghiassy.github.com/library/spec/SpecRunner.html "Run unit tests on all the files")
+[Run all the  unit tests](http://sghiassy.github.com/library/spec/AllTests.html "Run unit tests on all the files")
 
 ### Linked List
+
+A Linked List
 
 [LinkedList.js Source File](http://sghiassy.github.com/library/LinkedList.js "LinkedList.js Source File")
 
@@ -16,6 +18,8 @@ To run all the tests
 [Run LinkedList.js Unit Tests](http://sghiassy.github.com/library/spec/LinkedListTests.html "Run LinkedList.js Unit Tests")
 
 ### Stack
+
+A Linked List used exclusively for Stack (push/pop) operations
 
 [Stack.js Source File](http://sghiassy.github.com/library/Stack.js "Stack.js")
 
