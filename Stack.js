@@ -58,17 +58,17 @@ SCG.Library.Stack = (function() {
 			} else {
 				var string = "";
 				var curPointer = HEAD;
-				
+
 				do {
 					string += curPointer.getValue() + " ";
 					curPointer = curPointer.getNextNode();
 				} while(curPointer != undefined);
-				
+
 				//If the last charecter on the string is a space. Delete it.
 				if(string[string.length-1] == " ") {
 					string = string.slice(0, string.length - 1);
 				}
-				
+
 				return string;
 			}
 		};
