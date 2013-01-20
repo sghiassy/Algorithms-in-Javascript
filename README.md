@@ -10,11 +10,15 @@ To run all the tests
 ### Linked List
 
 [LinkedList.js Source File](http://sghiassy.github.com/library/LinkedList.js "LinkedList.js Source File")
-[LinkedList.js Unit Tests](http://sghiassy.github.com/spec/LinkedList.js "LinkedList.js Unit Tests")
-[Run LinkedList.js Unit Tests](http://sghiassy.github.com/spec/LinkedListTests.html "Run LinkedList.js Unit Tests")
+
+[LinkedList.js Unit Tests](http://sghiassy.github.com/library/spec/LinkedListSpec.js "LinkedList.js Unit Tests")
+
+[Run LinkedList.js Unit Tests](http://sghiassy.github.com/library/spec/LinkedListTests.html "Run LinkedList.js Unit Tests")
 
 ### Stack
 
 [Stack.js Source File](http://sghiassy.github.com/library/Stack.js "Stack.js")
-[Stack.js Unit Tests](http://sghiassy.github.com/spec/Stack.js "Stack.js Unit Tests")
-[Run Stack.js Unit Tests](http://sghiassy.github.com/spec/StackTests.html "Run Stack.js Unit Tests")
+
+[Stack.js Unit Tests](http://sghiassy.github.com/library/spec/StackSpec.js "Stack.js Unit Tests")
+
+[Run Stack.js Unit Tests](http://sghiassy.github.com/library/spec/StackTests.html "Run Stack.js Unit Tests")
