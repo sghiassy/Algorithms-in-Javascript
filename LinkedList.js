@@ -1,4 +1,7 @@
-SCG = {Library:{}} || SCG;
+//Setup Namespace if it does not already exist.
+if(typeof SCG === "undefined") {
+	SCG = {Library:{}}
+}
 
 SCG.Library.LinkedList = (function() {
 
@@ -98,10 +101,6 @@ SCG.Library.LinkedList = (function() {
 
 		this.getTail = function() {
 			return TAIL;
-		};
-
-		this.next = function(curNode) {
-			return curNode.getNextNode();
 		};
 	};
 

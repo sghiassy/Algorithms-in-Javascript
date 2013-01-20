@@ -12,8 +12,8 @@ describe("LinkedNode", function() {
 
 describe("LinkedList", function() {
 	beforeEach(function() {
-	    window.linkedList = new SCG.Library.LinkedList();
-	  });
+		window.linkedList = new SCG.Library.LinkedList();
+	});
 	
 	it("should be instantiable", function() {
 		expect(linkedList).toBeTruthy();
@@ -119,5 +119,27 @@ describe("LinkedList", function() {
 
 		expect(linkedList.pop()).toEqual(5);
 		expect(linkedList.print()).toEqual('1 2 3 4');
+	});
+	
+	it("should properly traverse a Linked List", function() {
+		linkedList.push(1);
+		linkedList.push(2);
+		linkedList.push(3);
+		linkedList.push(4);
+		linkedList.push(5);
+		
+		var node = linkedList.getHead();
+		expect(node.getValue()).toEqual(1);
+		node = node.getNextNode();
+		expect(node.getValue()).toEqual(2);
+		node = node.getNextNode();
+		expect(node.getValue()).toEqual(3);
+		node = node.getNextNode();
+		expect(node.getValue()).toEqual(4);
+		node = node.getNextNode();
+		expect(node.getValue()).toEqual(5);
+		expect(node.getValue()).toEqual(linkedList.getTail().getValue());
+		node = node.getNextNode();
+		expect(node).toEqual(undefined);
 	});
 });
