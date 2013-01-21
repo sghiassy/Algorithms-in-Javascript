@@ -1,6 +1,6 @@
 //Setup Namespace if it does not already exist.
 if(typeof SCG === "undefined") {
-	SCG = {Library:{}}
+	SCG = {Library:{}};
 }
 
 SCG.Library.LinkedList = (function() {
