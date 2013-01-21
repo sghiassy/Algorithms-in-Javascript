@@ -3,7 +3,7 @@ if(typeof SCG === "undefined") {
 	SCG = {Library:{}};
 }
 
-SCG.Library.SingularyLinkedCircularLinkedList = (function() {
+SCG.Library.SinglyLinkedCircularLinkedList = (function() {
 
 	//shared private variables
 
@@ -12,7 +12,7 @@ SCG.Library.SingularyLinkedCircularLinkedList = (function() {
 		var POINTER = undefined;
 		
 		this.push = function(val) {
-			var node = new SCG.Library.SingularyLinkedNode();
+			var node = new SCG.Library.SinglyLinkedNode();
 			node.setValue(val);
 			
 			if(HEAD == undefined) {
@@ -116,33 +116,6 @@ SCG.Library.SingularyLinkedCircularLinkedList = (function() {
 				
 				return string;
 			}
-		};
-	};
-})();
-
-
-SCG.Library.SingularyLinkedNode = (function() {
-
-	//shared private variable
-
-	return function() {
-		var value = undefined;
-		var nextNode = undefined;
-
-		this.setValue = function(val) {
-			value = val;
-		};
-
-		this.setNextNode = function(node) {
-			nextNode = node;
-		};
-
-		this.getNextNode = function() {
-			return nextNode;
-		}
-
-		this.getValue = function() {
-			return value;
 		};
 	};
 })();

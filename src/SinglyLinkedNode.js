@@ -4,7 +4,7 @@ if(typeof SCG === "undefined") {
 }
 
 
-SCG.Library.LinkedNode = (function() {
+SCG.Library.SinglyLinkedNode = (function() {
 
 	//shared private variable
 

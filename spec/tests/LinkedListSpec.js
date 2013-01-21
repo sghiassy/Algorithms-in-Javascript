@@ -1,15 +1,3 @@
-describe("LinkedNode", function() {
-	var linkedNode = new SCG.Library.LinkedNode();
-	
-	it("should be instantiable", function() {
-		expect(linkedNode).toBeTruthy();
-	});
-	
-	it("should be set to undefined on instantiation", function() {
-		expect(linkedNode.getValue()).toEqual(undefined);
-	})
-});
-
 describe("LinkedList", function() {
 	beforeEach(function() {
 		window.linkedList = new SCG.Library.LinkedList();

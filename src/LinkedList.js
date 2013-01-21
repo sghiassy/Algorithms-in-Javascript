@@ -8,7 +8,7 @@ SCG.Library.LinkedList = (function() {
 	//shared private variables
 
 	return function() {
-		var HEAD = new SCG.Library.LinkedNode();
+		var HEAD = new SCG.Library.SinglyLinkedNode();
 		var TAIL = HEAD;
 
 		this.push = function(val) {
@@ -18,7 +18,7 @@ SCG.Library.LinkedList = (function() {
 				length++;
 			} else {
 				var prevTail = TAIL;
-				TAIL = new SCG.Library.LinkedNode();
+				TAIL = new SCG.Library.SinglyLinkedNode();
 				TAIL.setValue(val);
 				prevTail.setNextNode(TAIL);
 			}
