@@ -4,10 +4,10 @@ This is my collection of JavaScript helper function and data structures. All fil
 
 #### All
 
-To run all the tests
+To run all the tests:
 [Run all the  unit tests](http://sghiassy.github.com/library/spec/runtimes/AllTests.html "Run unit tests on all the files")
 
-### Singly Linked Node
+## Singly Linked Node
 
 An object representing a node in a linked list. The node can store a single value and only has one pointer to a node.
 
@@ -27,7 +27,7 @@ An object representing a node in a linked list. The node can store a single valu
 -  **setNextNode**: Sets a pointer to the next node
 -  **getNextNode**: Returns a pointer to the next node
 
-### Stack
+## Stack
 
 A Linked List used exclusively for Stack (push/pop) operations.
 
@@ -45,7 +45,7 @@ A Linked List used exclusively for Stack (push/pop) operations.
 -  **pop**: Pop the last value from the stack
 -  **print**: Print out the stack as a string of the nodes' values
 
-### Singularly-linked Circular Linked List
+## Singularly-linked Circular Linked List
 
 This is a single-linked, circular, linked-list. 
 
@@ -63,13 +63,3 @@ This is a single-linked, circular, linked-list.
 -  **getPointer**: - Returns the node currently being pointed to by the internal pointer
 -  **resetPointer**: - Resets the pointer to the linked-lists' head
 -  **print**: - Prints out the linked list as a string of the nodes' values
-
-
-
-### Linked List
-
-A swiss army knife Linked List.
-
--  [LinkedList.js Source File](http://sghiassy.github.com/library/src/LinkedList.js "LinkedList.js Source File")
--  [LinkedList.js Unit Tests](http://sghiassy.github.com/library/spec/tests/LinkedListSpec.js "LinkedList.js Unit Tests")
--  [Run LinkedList.js Unit Tests](http://sghiassy.github.com/library/spec/runtimes/LinkedListTests.html "Run LinkedList.js Unit Tests")
