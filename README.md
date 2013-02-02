@@ -12,7 +12,7 @@ To run all the tests:
 An object representing a node in a linked list. The node can store a single value and only has one pointer to a node.
 
 -  [Source File](http://sghiassy.github.com/library/src/SinglyLinkedNode.js "SinglyLinkedNode.js")
--  [Unit Tests](http://sghiassy.github.com/library/spec/tests/SinglyLinkedNodeSpec.js "SinglyLinkedNode.js Unit Tests") [Run Unit Tests](http://sghiassy.github.com/library/spec/runtimes/SinglyLinkedNodeTests.html "SinglyLinkedNode Stack.js Unit Tests")
+-  [Unit Tests](http://sghiassy.github.com/library/spec/tests/SinglyLinkedNodeSpec.js "SinglyLinkedNode.js Unit Tests") ([Run Unit Tests](http://sghiassy.github.com/library/spec/runtimes/SinglyLinkedNodeTests.html "SinglyLinkedNode Stack.js Unit Tests"))
 
 #### Private Variables
 
