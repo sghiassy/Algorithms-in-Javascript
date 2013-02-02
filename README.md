@@ -11,7 +11,7 @@ To run all the tests:
 
 An object representing a node in a linked list. The node can store a single value and only has one pointer to a node.
 
--  [SingularlyLinkedNode.js Source File](http://sghiassy.github.com/library/src/SingularlyLinkedNode.js "SingularlyLinkedNode.js")
+-  [SingularlyLinkedNode.js Source File](http://sghiassy.github.com/library/src/SinglyLinkedCircualLinkedList.js "SingularlyLinkedNode.js")
 -  [Stack.js Unit Tests](http://sghiassy.github.com/library/spec/tests/StackSpec.js "Stack.js Unit Tests")
 -  [Run Stack.js Unit Tests](http://sghiassy.github.com/library/spec/runtimes/StackTests.html "Run Stack.js Unit Tests")
 
@@ -45,9 +45,13 @@ A Linked List used exclusively for Stack (push/pop) operations.
 -  **pop**: Pop the last value from the stack
 -  **print**: Print out the stack as a string of the nodes' values
 
-## Singularly-linked Circular Linked List
+## Singly-linked Circular Linked List
 
 This is a single-linked, circular, linked-list. 
+
+-  [SinglyLinkedCurcualLinkedList.js Source File](http://sghiassy.github.com/library/src/SinglyLinkedCurcualLinkedList.js "SinglyLinkedCurcualLinkedList.js")
+-  [SinglyLinkedCurcualLinkedList.js Unit Tests](http://sghiassy.github.com/library/spec/tests/SinglyLinkedCurcualLinkedList.js "SinglyLinkedCurcualLinkedList.js Unit Tests")
+-  [Run SinglyLinkedCurcualLinkedList.js Unit Tests](http://sghiassy.github.com/library/spec/runtimes/SinglyLinkedCurcualLinkedList.html "Run Stack.js Unit Tests")
 
 #### Private Variables
 
