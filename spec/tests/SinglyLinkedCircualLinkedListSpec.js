@@ -3,11 +3,11 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		window.linkedList = new SCG.Library.SinglyLinkedCircularLinkedList();
 	});
 	
-	it("A Singularly-Linked, Circular Linked List should be instantiable", function () {
+	it("it should be instantiable", function () {
 		expect(linkedList).toBeTruthy();
 	});
 	
-	it("A Singularly-Linked, Circular Linked List should hold values", function() {
+	it("it should hold values", function() {
 		linkedList.push(1);
 		linkedList.push(2);
 		linkedList.push(3);
@@ -15,7 +15,7 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		expect(linkedList.print()).toEqual("1 2 3");
 	});
 	
-	it("A Singularly-Linked, Circular Linked List should be able to pop values", function() {
+	it("it should be able to pop values", function() {
 		linkedList.push(1);
 		linkedList.push(2);
 		linkedList.push(3);
@@ -26,7 +26,7 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		expect(linkedList.print()).toEqual("1 2 3 4");
 	});
 	
-	it("A Singularly-Linked, Circular LinkedList should be able to be popped beyond its limit", function() {
+	it("it should be able to be popped beyond its limit", function() {
 		linkedList.push(1);
 		linkedList.push(2);
 		linkedList.push(3);
@@ -60,7 +60,7 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		expect(linkedList.print()).toEqual(undefined);
 	});
 
-	it("A Singularly-Linked, Circual LinkedList should be able to rotate values around the list", function() {
+	it("it should be able to rotate values around the list", function() {
 		linkedList.push(1);
 		linkedList.push(2);
 		linkedList.push(3);
@@ -75,7 +75,7 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		expect(linkedList.next()).toEqual(1);
 	});
 	
-	it("A Singularly-Linked, Circual LinkedList should be able to have its POINTER reset to HEAD", function() {
+	it("it should be able to have its POINTER reset to HEAD", function() {
 		linkedList.push(1);
 		linkedList.push(2);
 		linkedList.push(3);
@@ -97,7 +97,7 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		expect(linkedList.next()).toEqual(3);
 	});
 	
-	it("A Singularly-Linked, Circual LinkedList shouldn't fail when its of size 0", function() {
+	it("it shouldn't fail when its of size 0", function() {
 		expect(linkedList.next()).toEqual(undefined);
 		expect(linkedList.next()).toEqual(undefined);
 		expect(linkedList.next()).toEqual(undefined);
@@ -132,5 +132,28 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		expect(linkedList.next()).toEqual(undefined);
 		expect(linkedList.next()).toEqual(undefined);
 		expect(linkedList.next()).toEqual(undefined);
+	});
+	
+	it("it should push a new value right behind HEAD", function() {
+		linkedList.push(5);
+		linkedList.push(4);
+		linkedList.push(8);
+		linkedList.push(7);
+		linkedList.push(10);
+		linkedList.push(1);
+		
+		expect(linkedList.print()).toEqual("5 4 8 7 10 1");
+	});
+	
+	it("it should pop a node from right behind HEAD", function() {
+		linkedList.push(5);
+		linkedList.push(4);
+		linkedList.push(8);
+		linkedList.push(7);
+		linkedList.push(10);
+		linkedList.push(1);
+		linkedList.pop();
+		
+		expect(linkedList.print()).toEqual("5 4 8 7 10");
 	});
 });
