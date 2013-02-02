@@ -1,18 +1,6 @@
-describe("LinkedNode", function() {
-	var linkedNode = new SCG.Library.SingularyLinkedNode();
-	
-	it("should be instantiable", function() {
-		expect(linkedNode).toBeTruthy();
-	});
-	
-	it("should be set to undefined on instantiation", function() {
-		expect(linkedNode.getValue()).toEqual(undefined);
-	})
-});
-
 describe("Singularly-Linked Circular LinkedList", function() {
 	beforeEach(function() {
-		window.linkedList = new SCG.Library.SingularyLinkedCircularLinkedList();
+		window.linkedList = new SCG.Library.SinglyLinkedCircularLinkedList();
 	});
 	
 	it("A Singularly-Linked, Circular Linked List should be instantiable", function () {

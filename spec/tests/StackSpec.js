@@ -1,28 +1,3 @@
-describe("StackNode", function() {
-	var stackNode = new SCG.Library.StackNode();
-
-	it("should be instantiable", function() {
-		expect(stackNode).toBeTruthy();
-	});
-
-	it("should be set to undefined on instantiation", function() {
-		expect(stackNode.getValue()).toEqual(undefined);
-	});
-
-	it("should be able to hold a value", function() {
-		stackNode.setValue(4);
-		expect(stackNode.getValue()).toEqual(4);
-	});
-
-	it("should be able to be linked to another node", function() {
-		var newStackNode = new SCG.Library.StackNode();
-		newStackNode.setValue(5);
-		stackNode.setNextNode(newStackNode);
-
-		expect(stackNode.getNextNode().getValue()).toEqual(5);
-	});
-});
-
 describe("Stack", function() {
 	beforeEach(function() {
 		window.stack = new SCG.Library.Stack();

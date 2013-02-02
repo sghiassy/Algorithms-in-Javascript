@@ -13,11 +13,11 @@ SCG.Library.Stack = (function() {
 		
 		this.push = function(val) {
 			if(HEAD == undefined) {
-				HEAD = new SCG.Library.StackNode();
+				HEAD = new SCG.Library.SinglyLinkedNode();
 				HEAD.setValue(val);
 			} else {
 				var curPointer = HEAD;
-				var node = new SCG.Library.StackNode();
+				var node = new SCG.Library.SinglyLinkedNode();
 				node.setValue(val);
 				
 				while(curPointer.getNextNode() != undefined) {
@@ -71,32 +71,6 @@ SCG.Library.Stack = (function() {
 
 				return string;
 			}
-		};
-	};
-})();
-
-SCG.Library.StackNode = (function() {
-
-	//shared private variable
-	
-	return function() {
-		var value = undefined;
-		var nextNode = undefined;
-
-		this.setValue = function(val) {
-			value = val;
-		};
-		
-		this.getValue = function() {
-			return value;
-		};
-
-		this.setNextNode = function(node) {
-			nextNode = node;
-		};
-
-		this.getNextNode = function() {
-			return nextNode;
 		};
 	};
 })();
