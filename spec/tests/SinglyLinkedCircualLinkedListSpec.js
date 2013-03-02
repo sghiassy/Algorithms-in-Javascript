@@ -66,7 +66,7 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		linkedList.push(3);
 		
 		expect(linkedList.print()).toEqual("1 2 3");
-		expect(linkedList.getPointer()).toEqual(1);
+		expect(linkedList.getPointer().getValue()).toEqual(1);
 		expect(linkedList.next()).toEqual(2);
 		expect(linkedList.next()).toEqual(3);
 		expect(linkedList.next()).toEqual(1);
@@ -81,7 +81,7 @@ describe("Singularly-Linked Circular LinkedList", function() {
 		linkedList.push(3);
 		
 		expect(linkedList.print()).toEqual("1 2 3");
-		expect(linkedList.getPointer()).toEqual(1);
+		expect(linkedList.getPointer().getValue()).toEqual(1);
 		expect(linkedList.next()).toEqual(2);
 		expect(linkedList.next()).toEqual(3);
 		expect(linkedList.next()).toEqual(1);
