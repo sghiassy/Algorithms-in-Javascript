@@ -88,7 +88,7 @@ SCG.Library.SinglyLinkedCircularLinkedList = (function() {
 			if(POINTER == undefined) {
 				return undefined;
 			} else {
-				return POINTER();
+				return POINTER;
 			}
 		};
 		

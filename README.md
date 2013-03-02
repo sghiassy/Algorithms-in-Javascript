@@ -61,6 +61,7 @@ This is a single-linked, circular, linked-list.
 -  **pop**: Pops the last node from the linked list - maintains circular linked list
 -  **next**: Moves the internal pointer of the linked list to the next node in the list
 -  **removeNodeAtPointer**: - Removes the node being pointed at by the internal pointer
+-  **getHead**: - Returns the HEAD node
 -  **getPointer**: - Returns the node currently being pointed to by the internal pointer
 -  **resetPointer**: - Resets the pointer to the linked-lists' head
 -  **print**: - Prints out the linked list as a string of the nodes' values
