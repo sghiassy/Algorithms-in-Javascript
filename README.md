@@ -65,3 +65,4 @@ This is a single-linked, circular, linked-list.
 -  **getPointer**: - Returns the node currently being pointed to by the internal pointer
 -  **resetPointer**: - Resets the pointer to the linked-lists' head
 -  **print**: - Prints out the linked list as a string of the nodes' values
+-  **isEmpty** - Returns boolean value of whether the linked list is empty

@@ -75,6 +75,10 @@ SCG.Library.SinglyLinkedCircularLinkedList = (function() {
 			}
 		};
 		
+		this.isEmpty = function() {
+			return HEAD == undefined;
+		};
+		
 		this.next = function() {
 			if(HEAD == undefined) {
 				return undefined;
