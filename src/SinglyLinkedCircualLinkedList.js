@@ -88,9 +88,13 @@ SCG.Library.SinglyLinkedCircularLinkedList = (function() {
 			if(POINTER == undefined) {
 				return undefined;
 			} else {
-				return POINTER.getValue();
+				return POINTER();
 			}
 		};
+		
+		this.getHead = function() {
+			return HEAD;
+		}
 		
 		this.resetPointer = function() {
 			POINTER = HEAD;
