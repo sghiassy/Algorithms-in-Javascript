@@ -66,6 +66,12 @@ SCG.Library.SinglyLinkedCircularLinkedList = (function() {
 				var nodeValue = POINTER.getValue();
 				var trailingPointer = HEAD;
 				
+				//This handles the edge case where the pointer is pointing at the head.
+				//In this case we need to move the pointer forward 1 appropriatly
+				if(HEAD == POINTER) {
+					HEAD = POINTER.getNextNode();
+				}
+				
 				while(trailingPointer.getNextNode() != POINTER) {
 					trailingPointer = trailingPointer.getNextNode();
 				}
