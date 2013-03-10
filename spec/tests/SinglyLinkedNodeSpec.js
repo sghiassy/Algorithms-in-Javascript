@@ -1,5 +1,7 @@
 describe("Singly Linked Node", function() {
-	var linkedNode = new SCG.Library.SinglyLinkedNode();
+	beforeEach(function() {
+		window.linkedNode = new SCG.Library.SinglyLinkedNode();
+	});
 	
 	it("should be instantiable", function() {
 		expect(linkedNode).toBeTruthy();
@@ -8,6 +10,19 @@ describe("Singly Linked Node", function() {
 	it("should be set to undefined on instantiation", function() {
 		expect(linkedNode.getValue()).toEqual(undefined);
 	})
+	
+	it("should be able to take in a value on instantion", function() {
+		linkedNode = new SCG.Library.SinglyLinkedNode({value:5});
+		expect(linkedNode.getValue()).toEqual(5);
+		expect(linkedNode.getNextNode()).toEqual(undefined);
+	});
+	
+	it("should be able to link to another node on instantion", function() {
+		nextLinkedNode = new SCG.Library.SinglyLinkedNode({value:10});
+		linkedNode = new SCG.Library.SinglyLinkedNode({nextNode: nextLinkedNode});
+		expect(linkedNode.getNextNode().getValue()).toEqual(10);
+		expect(linkedNode.getValue()).toEqual(undefined);
+	});
 	
 	it("should be able to hold a value", function() {
 		linkedNode.setValue(123);

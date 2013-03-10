@@ -8,9 +8,14 @@ SCG.Library.SinglyLinkedNode = (function() {
 
 	//shared private variable
 
-	return function() {
-		var value = undefined;
-		var nextNode = undefined;
+	return function(obj) {
+		if(obj != undefined) {
+			var value = obj.value || undefined;
+			var nextNode = obj.nextNode || undefined;
+		} else {
+			var value = undefined;
+			var nextNode = undefined;
+		}
 
 		this.setValue = function(val) {
 			value = val;
