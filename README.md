@@ -47,7 +47,8 @@ A Linked List used exclusively for Stack (push/pop) operations.
 
 A FIFO datastructure. First values pushed into the queue will be the first values coming out of the queue.
 
-- Not yet implemented 
+-  [Source File](http://sghiassy.github.com/library/src/Queue.js "Queue.js")
+-  [Unit Tests](http://sghiassy.github.com/library/spec/tests/Queue.js "Queue.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/Queue.html "Run Queue.js Unit Tests"))
 
 #### Private Variables
 
@@ -93,5 +94,15 @@ A queue type data structure that allows pushing into the queue, and retrieval fr
 
 #### Public Methods
 
--  **push** - Push a new value into the queue
--  **pop** - Returns the highest priority node from the heap
+
+
+## Binary Search Tree
+
+
+
+#### Private Variables
+
+
+
+#### Public Methods
+
