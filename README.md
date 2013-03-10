@@ -82,3 +82,16 @@ This is a single-linked, circular, linked-list.
 -  **resetPointer**: - Resets the pointer to the linked-lists' head
 -  **print**: - Prints out the linked list as a string of the nodes' values
 -  **isEmpty** - Returns boolean value of whether the linked list is empty
+
+## Priority Queue / Heap
+
+A queue type data structure that allows pushing into the queue, and retrieval from the queue based on the highest priority
+
+#### Private Variables
+
+-  **heap**: The actual array that represents the __complete__ binary search tree. 
+
+#### Public Methods
+
+-  **push** - Push a new value into the queue
+-  **pop** - Returns the highest priority node from the heap
