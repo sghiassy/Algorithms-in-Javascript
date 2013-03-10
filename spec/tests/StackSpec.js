@@ -19,6 +19,16 @@ describe("Stack", function() {
 
 		expect(stack.print()).toEqual("1 2 3 4 5");
 	});
+	
+	it("should pop back the last inserted value", function() {
+		stack.push(1);
+		stack.push(2);
+		stack.push(3);
+		stack.push(4);
+		stack.push(5);
+
+		expect(stack.pop()).toEqual(5);
+	});
 
 	it("should be able to be popped beyond its length", function() {
 		stack.push(1);

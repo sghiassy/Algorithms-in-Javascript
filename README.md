@@ -40,10 +40,26 @@ A Linked List used exclusively for Stack (push/pop) operations.
 #### Public Methods
 
 -  **push**: Push a value into the stack
--  **pop**: Pop the last value from the stack
+-  **pop**: Pop the last inserted value from the stack
 -  **print**: Print out the stack as a string of the nodes' values
 
-## Singly-linked Circular Linked List
+## Queue
+
+A FIFO datastructure. First values pushed into the queue will be the first values coming out of the queue.
+
+- Not yet implemented 
+
+#### Private Variables
+
+-  **HEAD**: A pointer to the first node in the stack. Will be set to undefined on instantiation and when there are zero nodes in the list
+
+#### Public Methods
+
+-  **push**: Push a value into the stack
+-  **pop**: Pop the oldest value from the stack
+-  **print**: Print out the stack as a string of the nodes' values
+
+## Singly-linked, Circular, Linked-List
 
 This is a single-linked, circular, linked-list. 
 
