@@ -48,7 +48,7 @@ A Linked List used exclusively for Stack (push/pop) operations.
 A FIFO datastructure. First values pushed into the queue will be the first values coming out of the queue.
 
 -  [Source File](http://sghiassy.github.com/library/src/Queue.js "Queue.js")
--  [Unit Tests](http://sghiassy.github.com/library/spec/tests/Queue.js "Queue.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/Queue.html "Run Queue.js Unit Tests"))
+-  [Unit Tests](http://sghiassy.github.com/library/spec/tests/QueueSpec.js "Queue.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/Queue.html "Run Queue.js Unit Tests"))
 
 #### Private Variables
 

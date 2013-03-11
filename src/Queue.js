@@ -16,7 +16,7 @@ SCG.Library.Queue = (function() {
 		}
 		
 		
-		this.push = function(value) {
+		this.enqueue = function(value) {
 			if(HEAD == undefined) {
 				HEAD = new SCG.Library.SinglyLinkedNode({value:value});
 			} else {
@@ -25,7 +25,7 @@ SCG.Library.Queue = (function() {
 			}
 		};
 		
-		this.pop = function() {
+		this.dequeue = function() {
 			if(HEAD == undefined) {
 				return undefined;
 			} else if(HEAD.getNextNode() == undefined) {
@@ -62,6 +62,14 @@ SCG.Library.Queue = (function() {
 			}
 				
 			return printString;
+		};
+		
+		this.isEmpty = function() {
+			if(HEAD == undefined) {
+				return true;
+			} else {
+				return false;
+			}
 		};
 	};
 })();

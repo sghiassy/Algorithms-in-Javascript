@@ -7,54 +7,64 @@ describe("Queue", function() {
 		expect(queue).toBeTruthy();
 	});
 	
+	it("should be be empty on instantiation", function() {
+		expect(queue.isEmpty()).toEqual(true);
+	});
+	
 	it("should be able to hold a value", function() {
-		queue.push(5);
+		queue.enqueue(5);
 		expect(queue.print()).toEqual("5");
 	});
 	
 	it("should be able to pop the oldest entered value", function() {
-		queue.push(5);
-		queue.push(3);
-		queue.push(2);
-		queue.push(1);
-		expect(queue.pop()).toEqual(5);
+		queue.enqueue(5);
+		queue.enqueue(3);
+		queue.enqueue(2);
+		queue.enqueue(1);
+		expect(queue.dequeue()).toEqual(5);
 	});
 	
 	it("should be able to pop pop past its limit without breaking", function() {
-		queue.push(5);
-		queue.push(3);
-		queue.push(2);
-		queue.push(1);
-		expect(queue.pop()).toEqual(5);
-		expect(queue.pop()).toEqual(3);
-		expect(queue.pop()).toEqual(2);
-		expect(queue.pop()).toEqual(1);
-		expect(queue.pop()).toEqual(undefined);
-		expect(queue.pop()).toEqual(undefined);
+		queue.enqueue(5);
+		queue.enqueue(3);
+		queue.enqueue(2);
+		expect(queue.isEmpty()).toEqual(false);
+		queue.enqueue(1);
+		expect(queue.dequeue()).toEqual(5);
+		expect(queue.dequeue()).toEqual(3);
+		expect(queue.dequeue()).toEqual(2);
+		expect(queue.dequeue()).toEqual(1);
+		expect(queue.dequeue()).toEqual(undefined);
+		expect(queue.dequeue()).toEqual(undefined);
+		expect(queue.isEmpty()).toEqual(true);
 	});
 	
 	it("should be able to pop pop past its limit without breaking and start over again without a hitch", function() {
-		queue.push(5);
-		queue.push(3);
-		queue.push(2);
-		queue.push(1);
-		expect(queue.pop()).toEqual(5);
-		expect(queue.pop()).toEqual(3);
-		expect(queue.pop()).toEqual(2);
-		expect(queue.pop()).toEqual(1);
-		expect(queue.pop()).toEqual(undefined);
-		expect(queue.pop()).toEqual(undefined);
+		queue.enqueue(5);
+		queue.enqueue(3);
+		queue.enqueue(2);
+		expect(queue.isEmpty()).toEqual(false);
+		queue.enqueue(1);
+		expect(queue.dequeue()).toEqual(5);
+		expect(queue.dequeue()).toEqual(3);
+		expect(queue.dequeue()).toEqual(2);
+		expect(queue.dequeue()).toEqual(1);
+		expect(queue.dequeue()).toEqual(undefined);
+		expect(queue.dequeue()).toEqual(undefined);
+		expect(queue.isEmpty()).toEqual(true);
 		
-		queue.push(5);
-		queue.push(3);
-		queue.push(2);
-		queue.push(1);
-		expect(queue.pop()).toEqual(5);
-		expect(queue.pop()).toEqual(3);
-		expect(queue.pop()).toEqual(2);
-		expect(queue.pop()).toEqual(1);
-		expect(queue.pop()).toEqual(undefined);
-		expect(queue.pop()).toEqual(undefined);
+		queue.enqueue(5);
+		queue.enqueue(3);
+		queue.enqueue(2);
+		queue.enqueue(1);
+		expect(queue.isEmpty()).toEqual(false);
+		expect(queue.dequeue()).toEqual(5);
+		expect(queue.dequeue()).toEqual(3);
+		expect(queue.dequeue()).toEqual(2);
+		expect(queue.dequeue()).toEqual(1);
+		expect(queue.dequeue()).toEqual(undefined);
+		expect(queue.dequeue()).toEqual(undefined);
+		expect(queue.isEmpty()).toEqual(true);
 	});
 	
 	it("should be able to print itself with no values", function() {
@@ -62,15 +72,15 @@ describe("Queue", function() {
 	});
 	
 	it("should be able to print itself with 1 value", function() {
-		queue.push(5);
+		queue.enqueue(5);
 		expect(queue.print()).toEqual("5");
 	});
 	
 	it("should be able to print itself with multiple values", function() {
-		queue.push(5);
-		queue.push(3);
-		queue.push(2);
-		queue.push(1);
+		queue.enqueue(5);
+		queue.enqueue(3);
+		queue.enqueue(2);
+		queue.enqueue(1);
 		
 		expect(queue.print()).toEqual("1 2 3 5");
 	});
