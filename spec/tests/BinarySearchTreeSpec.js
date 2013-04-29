@@ -18,7 +18,5 @@ describe("Binary Search Tree", function() {
 		tree.insert(20);
 		tree.insert(5);
 		expect(tree.printBreadthFirst()).toEqual("15 11 20 5");
-		debugger;
-		console.log(tree.print());
 	});
 });
