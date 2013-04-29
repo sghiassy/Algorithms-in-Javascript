@@ -111,4 +111,4 @@ A queue type data structure that allows pushing into the queue, and retrieval fr
 There are two primary implementations of Graphs in this library. One using adjacency lists and the other using an adjacency matrix.
 
 -  [Source File](http://sghiassy.github.com/library/src/GraphUsingAdjacencyList.js "GraphUsingAdjaencyList.js")
--  [Unit Tests](http://sghiassy.github.com/library/spec/tests/GraphUsingAdjacencyListSpec.js "GraphUsingAdjaencyListSpec.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/GraphUsingAdjaencyList.html "Run GraphUsingAdjaencyList.js Unit Tests"))
+-  [Unit Tests](http://sghiassy.github.com/library/spec/tests/GraphUsingAdjacencyListSpec.js "GraphUsingAdjaencyListSpec.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/GraphUsingAdjacencyList.html "Run GraphUsingAdjaencyList.js Unit Tests"))
