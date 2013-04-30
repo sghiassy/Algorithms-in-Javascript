@@ -5,14 +5,14 @@ This is my collection of JavaScript helper function and data structures. All fil
 #### All
 
 To run all the tests:
-[Run all the  unit tests](http://sghiassy.github.com/library/spec/runtimes/AllTests.html "Run unit tests on all the files")
+[Run all the  unit tests](http://sghiassy.github.com/Algorithms-in-Javascript/spec/runtimes/AllTests.html "Run unit tests on all the files")
 
 ## Singly Linked Node
 
 An object representing a node in a linked list. The node can store a single value and only has one pointer to a node.
 
--  [Source File](http://sghiassy.github.com/library/src/SinglyLinkedNode.js "SinglyLinkedNode.js")
--  [Unit Tests](http://sghiassy.github.com/library/spec/tests/SinglyLinkedNodeSpec.js "SinglyLinkedNode.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/SinglyLinkedNodeTests.html "SinglyLinkedNode Stack.js Unit Tests"))
+-  [Source File](http://sghiassy.github.com/Algorithms-in-Javascript/src/SinglyLinkedNode.js "SinglyLinkedNode.js")
+-  [Unit Tests](http://sghiassy.github.com/Algorithms-in-Javascript/spec/tests/SinglyLinkedNodeSpec.js "SinglyLinkedNode.js Unit Tests") ([Run](http://sghiassy.github.com/Algorithms-in-Javascript/spec/runtimes/SinglyLinkedNodeTests.html "SinglyLinkedNode Stack.js Unit Tests"))
 
 #### Private Variables
 
@@ -30,8 +30,8 @@ An object representing a node in a linked list. The node can store a single valu
 
 A Linked List used exclusively for Stack (push/pop) operations.
 
--  [Source File](http://sghiassy.github.com/library/src/Stack.js "Stack.js")
--  [Unit Tests](http://sghiassy.github.com/library/spec/tests/StackSpec.js "Stack.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/StackTests.html "Run Stack.js Unit Tests"))
+-  [Source File](http://sghiassy.github.com/Algorithms-in-Javascript/src/Stack.js "Stack.js")
+-  [Unit Tests](http://sghiassy.github.com/Algorithms-in-Javascript/spec/tests/StackSpec.js "Stack.js Unit Tests") ([Run](http://sghiassy.github.com/Algorithms-in-Javascript/spec/runtimes/StackTests.html "Run Stack.js Unit Tests"))
 
 #### Private Variables
 
@@ -47,8 +47,8 @@ A Linked List used exclusively for Stack (push/pop) operations.
 
 A FIFO datastructure. First values pushed into the queue will be the first values coming out of the queue.
 
--  [Source File](http://sghiassy.github.com/library/src/Queue.js "Queue.js")
--  [Unit Tests](http://sghiassy.github.com/library/spec/tests/QueueSpec.js "Queue.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/Queue.html "Run Queue.js Unit Tests"))
+-  [Source File](http://sghiassy.github.com/Algorithms-in-Javascript/src/Queue.js "Queue.js")
+-  [Unit Tests](http://sghiassy.github.com/Algorithms-in-Javascript/spec/tests/QueueSpec.js "Queue.js Unit Tests") ([Run](http://sghiassy.github.com/Algorithms-in-Javascript/spec/runtimes/Queue.html "Run Queue.js Unit Tests"))
 
 #### Private Variables
 
@@ -64,8 +64,8 @@ A FIFO datastructure. First values pushed into the queue will be the first value
 
 This is a single-linked, circular, linked-list. 
 
--  [Source File](http://sghiassy.github.com/library/src/SinglyLinkedCircualLinkedList.js "SinglyLinkedCurcualLinkedList.js")
--  [Unit Tests](http://sghiassy.github.com/library/spec/tests/SinglyLinkedCircualLinkedListSpec.js "SinglyLinkedCircualLinkedList.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/SinglyLinkedCircualLinkedListTests.html "Run Stack.js Unit Tests"))
+-  [Source File](http://sghiassy.github.com/Algorithms-in-Javascript/src/SinglyLinkedCircualLinkedList.js "SinglyLinkedCurcualLinkedList.js")
+-  [Unit Tests](http://sghiassy.github.com/Algorithms-in-Javascript/spec/tests/SinglyLinkedCircualLinkedListSpec.js "SinglyLinkedCircualLinkedList.js Unit Tests") ([Run](http://sghiassy.github.com/Algorithms-in-Javascript/spec/runtimes/SinglyLinkedCircualLinkedListTests.html "Run Stack.js Unit Tests"))
 
 #### Private Variables
 
@@ -110,5 +110,5 @@ A queue type data structure that allows pushing into the queue, and retrieval fr
 
 There are two primary implementations of Graphs in this library. One using adjacency lists and the other using an adjacency matrix.
 
--  [Source File](http://sghiassy.github.com/library/src/GraphUsingAdjacencyList.js "GraphUsingAdjaencyList.js")
--  [Unit Tests](http://sghiassy.github.com/library/spec/tests/GraphUsingAdjacencyListSpec.js "GraphUsingAdjaencyListSpec.js Unit Tests") ([Run](http://sghiassy.github.com/library/spec/runtimes/GraphUsingAdjacencyList.html "Run GraphUsingAdjaencyList.js Unit Tests"))
+-  [Source File](http://sghiassy.github.com/Algorithms-in-Javascript/src/GraphUsingAdjacencyList.js "GraphUsingAdjaencyList.js")
+-  [Unit Tests](http://sghiassy.github.com/Algorithms-in-Javascript/spec/tests/GraphUsingAdjacencyListSpec.js "GraphUsingAdjaencyListSpec.js Unit Tests") ([Run](http://sghiassy.github.com/Algorithms-in-Javascript/spec/runtimes/GraphUsingAdjacencyList.html "Run GraphUsingAdjaencyList.js Unit Tests"))
