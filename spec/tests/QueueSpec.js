@@ -11,6 +11,12 @@ describe("Queue", function() {
 		expect(queue.isEmpty()).toEqual(true);
 	});
 	
+	it("should be able to take a value on instantiation", function() {
+		window.queue = new SCG.Library.Queue({value:456});
+		expect(queue.isEmpty()).toEqual(false);
+		expect(queue.dequeue()).toEqual(456);
+	});
+	
 	it("should be able to hold a value", function() {
 		queue.enqueue(5);
 		expect(queue.print()).toEqual("5");
@@ -22,6 +28,17 @@ describe("Queue", function() {
 		queue.enqueue(2);
 		queue.enqueue(1);
 		expect(queue.dequeue()).toEqual(5);
+	});
+	
+	it("should be able to pop the oldest entered value, even when the value was given during instantiation", function() {
+		window.queue = new SCG.Library.Queue({value:5});
+		queue.enqueue(3);
+		queue.enqueue(2);
+		queue.enqueue(1);
+		expect(queue.dequeue()).toEqual(5);
+		
+		window.queue = new SCG.Library.Queue({value:75});
+		expect(queue.dequeue()).toEqual(75);
 	});
 	
 	it("should be able to pop pop past its limit without breaking", function() {

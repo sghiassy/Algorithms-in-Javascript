@@ -1,6 +1,6 @@
-#library.js
+#Algorithms in Javascript
 
-This is my collection of JavaScript helper function and data structures. All files in this repo have 100% unit test coverage
+This is my collection of JavaScript algorithms, helper function and data structures. All files in this repo have 100% unit test coverage
 
 #### All
 

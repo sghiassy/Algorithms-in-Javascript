@@ -9,8 +9,8 @@ SCG.Library.Queue = (function() {
 	//shared private variable
 
 	return function(initSettings) {
-		if(initSettings != undefined) {
-			var HEAD = initSettings.value || undefined;
+		if(initSettings != undefined && initSettings.value) {
+			var HEAD = new SCG.Library.SinglyLinkedNode({value:initSettings.value});
 		} else {
 			var HEAD = undefined;
 		}
@@ -20,7 +20,7 @@ SCG.Library.Queue = (function() {
 			if(HEAD == undefined) {
 				HEAD = new SCG.Library.SinglyLinkedNode({value:value});
 			} else {
-				var newNode = new SCG.Library.SinglyLinkedNode({value:value,nextNode:HEAD});
+				var newNode = new SCG.Library.SinglyLinkedNode({value: value, nextNode: HEAD});
 				HEAD = newNode;
 			}
 		};
