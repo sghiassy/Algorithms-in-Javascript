@@ -67,7 +67,7 @@ describe("Graph using Adjacency List", function() {
 		graph.addNode(4);
 		graph.connect(4, 5);
 		graph.connect(2, 4);
-		expect(graph.print()).toEqual("1: 2 5\n2: 1 5 4\n5: 1 2 4\n4: 5 2\n");
+		expect(graph.print()).toEqual("1: 2 5\n2: 1 4 5\n5: 1 2 4\n4: 2 5\n");
 	});
 	
 	it("should be able to model Figure 5.4 in DataStructures Book", function() {
@@ -83,7 +83,7 @@ describe("Graph using Adjacency List", function() {
 		graph.addNode(3);
 		graph.connect(3, 2);
 		graph.connect(3, 4);
-		expect(graph.print()).toEqual("1: 2 5\n2: 1 5 4 3\n5: 1 2 4\n4: 5 2 3\n3: 2 4\n");
+		expect(graph.print()).toEqual("1: 2 5\n2: 1 3 4 5\n5: 1 2 4\n4: 2 3 5\n3: 2 4\n");
 	});
 	
 	it("should be able to return a breadth-first-search representation of the graph", function() {
@@ -109,10 +109,71 @@ describe("Graph using Adjacency List", function() {
 		graph.connect('D', 'F');
 		
 		graph.connect('E', 'G');
-		
+
 		expect(graph.print()).toEqual("A: B D G\nB: A E F\nC: F H\nD: A F\nE: B G\nF: B C D\nG: A E\nH: C\n");
+
+		expect(graph.bfs()).toEqual("A B D G E F C H");
+	});
+	
+	it("should be able to return a breadth-first-search representation of the graph", function() {
+		graph.addNode('A');
+		graph.addNode('B');
+		graph.addNode('C');
+		graph.addNode('D');
+		graph.addNode('E');
+		graph.addNode('F');
+		graph.addNode('G');
+		graph.addNode('H');
+		graph.addNode('S');
 		
-		//Still working on this
-		//expect(graph.bfs()).toEqual("A B D G E G C H");
+		graph.connect('A', 'B');
+		graph.connect('A', 'S');
+		
+		graph.connect('S', 'C');
+		graph.connect('S', 'G');
+		
+		graph.connect('G', 'H');
+		graph.connect('G', 'F');
+		
+		graph.connect('H', 'E');
+		
+		graph.connect('E', 'C');
+		
+		graph.connect('C', 'F');
+		graph.connect('C', 'D');
+
+		expect(graph.print()).toEqual("A: B S\nB: A\nC: D E F S\nD: C\nE: C H\nF: C G\nG: F H S\nH: E G\nS: A C G\n");
+
+		expect(graph.bfs()).toEqual("A B S C G D E F H");
+	});
+	
+	it("should be able to return a breadth-first-search representation of the graph when an initial node is supplied", function() {
+		graph.addNode('A');
+		graph.addNode('B');
+		graph.addNode('C');
+		graph.addNode('D');
+		graph.addNode('E');
+		graph.addNode('F');
+		graph.addNode('G');
+		graph.addNode('H');
+
+		graph.connect('E', 'B');
+		graph.connect('E', 'C');
+		graph.connect('E', 'G');
+		
+		graph.connect('B', 'A');
+		
+		graph.connect('C', 'A');
+		graph.connect('C', 'D');
+		
+		graph.connect('G', 'D');
+		
+		graph.connect('A', 'F');
+		
+		graph.connect('F', 'H');
+
+		expect(graph.print()).toEqual("A: B C F\nB: A E\nC: A D E\nD: C G\nE: B C G\nF: A H\nG: D E\nH: F\n");
+
+		expect(graph.bfs('E')).toEqual("E B C G A D F H");
 	});
 });

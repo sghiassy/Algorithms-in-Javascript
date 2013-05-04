@@ -59,37 +59,70 @@ SCG.Library.Graph = (function() {
 		};
 		
 		//Breadth First Search Algorithm
-		this.bfs = function() {
+		this.bfs = function(startNode) {
 			if(this.isEmpty() == true) {
 				return "";
 			}
 
-			var i = 0;
 			var bfs = "";
-			var currentNode = edgeNodes[i];
-			currentNode.setCustomAttr({visited:true});
-			var queue = new SCG.Library.Queue({value:currentNode});
+			
+			if(startNode == undefined) {
+				//Setup Queue for the first loop
+				var currentNode = edgeNodes[0]; //Get First node to look out
+			} else {
+				var unsortedObjectHash = {};
+
+				for(var i = 0, iLen = edgeNodes.length; i < iLen; i++) {
+					var currentNodeValue = edgeNodes[i].getValue();
+					unsortedObjectHash[currentNodeValue] = edgeNodes[i];
+				}
+				
+				var currentNode = unsortedObjectHash[startNode];
+			}
+			
+			currentNode.setCustomAttr({visited:true}); //Make the first node as visited
+			var queue = new SCG.Library.Queue({value:currentNode}); //Add the first node to the queue
+			bfs += currentNode.getValue() + " "; //
 		
 			while(queue.isEmpty() == false) {
-				if(i == 100) { break; } //Protection against infinite while loop
-				i++;
-				
-				
-				var currentNeighbors = currentNode.getNeighbors();
-				var numberQueued = 0;
+				console.log('');
+				console.log('');
+				console.log('');
+				currentNode = queue.dequeue();
+				console.log('Current Node', currentNode.getValue());
+
+				console.log('Current Neighbors:');
+				var currentNeighbors = currentNode.getSortedNeighbors();
+				//Log Neighbors
+				for(var k = 0, kLen = currentNeighbors.length; k < kLen; k++) {
+					console.log(currentNeighbors[k].getValue());
+				}
 				
 				for(var j = 0, jLen = currentNeighbors.length; j < jLen; j++) {
 					var currentNeighbor = currentNeighbors[j];
+					console.log('Looking at Neighbor', currentNeighbor.getValue());
 					
-					if(currentNeighbor.getCustomAttr('visited') != true) {
+					if(currentNeighbor.getCustomAttr('visited') == true) {
+						console.log('This neighbor has been visited. Skipping');
+					} else {
+						console.log('This neighbor has not been visited. Adding to the queue');
+						bfs += currentNeighbor.getValue() + " ";
+						currentNeighbor.setCustomAttr({visited:true});
 						queue.enqueue(currentNeighbor);
-						numberQueued++;
 					}
 				}
-				
-				var currentNode = queue.dequeue();
-				bfs += currentNode.getValue();
+
+				console.log('Finished looking at Neighbor ', currentNode.getValue());
+				console.log('The current bfs string is: ', bfs);
+				console.log('The current queue is: ');
+				queue.map(function(node){console.log(node.getValue().getValue())});
 			}
+			
+			if(bfs[bfs.length-1] == " ") {
+				bfs = bfs.slice(0, bfs.length - 1);
+			}
+		
+			return bfs;
 		};
 	};
 })();
@@ -108,17 +141,16 @@ SCG.Library.GraphNode = (function() {
 
 		this.printNeighbors = function() {
 			var stringRepresentation = "";
-
+			var neighborsArray = [];
+			
 			for(var i = 0, iLen = neighbors.length; i < iLen; i++) {
 				var currentNeighbor = neighbors[i];
 
-				stringRepresentation += currentNeighbor.getValue() + " ";
+				neighborsArray.push(currentNeighbor.getValue());
 			}
-
-			//If the last charecter on the string is a space. Delete it.
-			if(stringRepresentation[stringRepresentation.length-1] == " ") {
-				stringRepresentation = stringRepresentation.slice(0, stringRepresentation.length - 1);
-			}
+			
+			neighborsArray.sort();
+			stringRepresentation = neighborsArray.join(' ');
 
 			return stringRepresentation;
 		};
@@ -126,6 +158,32 @@ SCG.Library.GraphNode = (function() {
 		this.getNeighbors = function() {
 			return neighbors;
 		}
+		
+		this.getSortedNeighbors = function() {
+			var unsortedObjectHash = {};
+			var keys;
+			var currentNodeValue;
+			var sortedArray = [];
+			
+			//Get Node Values and put into object hash
+			for(var i = 0, iLen = neighbors.length; i < iLen; i++) {
+				currentNodeValue = neighbors[i].getValue();
+				unsortedObjectHash[currentNodeValue] = neighbors[i];
+			}
+			
+			//Get Keys from object hash
+			keys = Object.keys(unsortedObjectHash);
+			
+			//Sort Keys
+			keys.sort();
+			
+			//Create sorted array with objects
+			for(var i = 0, iLen = keys.length; i < iLen; i++) {
+				sortedArray.push(unsortedObjectHash[keys[i]]);
+			}
+			
+			return sortedArray;
+		};
 		
 		this.setCustomAttr = function(customAttr) {
 			if(customAttr) {

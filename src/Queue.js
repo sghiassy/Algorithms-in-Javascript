@@ -64,6 +64,17 @@ SCG.Library.Queue = (function() {
 			return printString;
 		};
 		
+		this.map = function(callback) {
+			var curPointer = HEAD;
+			var printString = "";
+			
+			while(curPointer != undefined) {
+				callback(curPointer);
+				curPointer = curPointer.getNextNode();
+			}
+		};
+		
+		
 		this.isEmpty = function() {
 			if(HEAD == undefined) {
 				return true;
