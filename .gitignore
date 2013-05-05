@@ -22,4 +22,9 @@ local.properties
 
 .DS_Store
 
+# ignore NodeJS module files
 node_modules
+
+# ignore Grunt working files
+.grunt/grunt-contrib-jasmine
+_SpecRunner.html
