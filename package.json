@@ -13,6 +13,7 @@
       "grunt-contrib-qunit": "*",
       "grunt-contrib-watch": "*",
       "grunt-contrib-concat": "*",
-      "grunt-contrib-jasmine": "*"
+      "grunt-contrib-jasmine": "*",
+      "grunt-gcc": "*"
   }
 }
