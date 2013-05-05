@@ -7,6 +7,11 @@
     "url": "https://github.com/sghiassy/Algorithms-in-Javascript"
   },
   "dependencies": {
-      "grunt": "*"
+      "grunt": "*",
+      "grunt-contrib-uglify": "*",
+      "grunt-contrib-jshint": "*",
+      "grunt-contrib-qunit": "*",
+      "grunt-contrib-watch": "*",
+      "grunt-contrib-concat": "*"
   }
 }
