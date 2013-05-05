@@ -5,6 +5,33 @@ if(typeof SCG === "undefined") {
 
 SCG.Library.Graph = (function() {
 	//shared private variables
+	var getStartingNode = function(edgeNodes, startNode) {
+		var node;
+		
+		//Setup Queue for the first loop. If a starting node has not been specified. Just pick the first node
+		//in the list. Otherwise, use the starting node.
+		if(startNode == undefined) {
+			node = edgeNodes[0]; //starting node has not been defined. Just get first node in the list
+		} else {
+			var unsortedObjectHash = {};
+
+			//Go through the array of nodes and create an index of each node's values. 
+			for(var i = 0, iLen = edgeNodes.length; i < iLen; i++) {
+				var currentNodeValue = edgeNodes[i].getValue();
+
+				if(unsortedObjectHash[currentNodeValue] != undefined) {
+					console.error('The graph has two or mode nodes with duplicate value. BFS may not return expected results');
+				}
+
+				unsortedObjectHash[currentNodeValue] = edgeNodes[i];
+			}
+
+			//With the index built, simply return the 
+			node = unsortedObjectHash[startNode];
+		}
+
+		return node;
+	}
 	
 	return function() {
 		var edgeNodes = [];
@@ -40,16 +67,16 @@ SCG.Library.Graph = (function() {
 		
 		this.print = function() {
 			var stringRepresentation = "";
-			
+
 			for(var i = 0, iLen = edgeNodes.length; i < iLen; i++) {
 				var currentNode = edgeNodes[i];
-				
+
 				stringRepresentation += currentNode.getValue() + ": " + currentNode.printNeighbors() + "\n";
 			}
-			
+
 			return stringRepresentation;
 		};
-		
+
 		this.isEmpty = function() {
 			if(edgeNodes.length <= 0) {
 				return true;
@@ -57,71 +84,41 @@ SCG.Library.Graph = (function() {
 				return false;
 			}
 		};
-		
+
 		//Breadth First Search Algorithm
 		this.bfs = function(startNode) {
+			var currentNode, queue, bfs, currentNeighbors, currentNeighbor;
+
 			if(this.isEmpty() == true) {
 				return "";
 			}
 
-			var bfs = "";
-			
-			if(startNode == undefined) {
-				//Setup Queue for the first loop
-				var currentNode = edgeNodes[0]; //Get First node to look out
-			} else {
-				var unsortedObjectHash = {};
-
-				for(var i = 0, iLen = edgeNodes.length; i < iLen; i++) {
-					var currentNodeValue = edgeNodes[i].getValue();
-					unsortedObjectHash[currentNodeValue] = edgeNodes[i];
-				}
-				
-				var currentNode = unsortedObjectHash[startNode];
-			}
-			
+			//Setup for Algorithm
+			currentNode = getStartingNode(edgeNodes, startNode); //Get either the first node, or the node specified in startNode
 			currentNode.setCustomAttr({visited:true}); //Make the first node as visited
-			var queue = new SCG.Library.Queue({value:currentNode}); //Add the first node to the queue
-			bfs += currentNode.getValue() + " "; //
-		
-			while(queue.isEmpty() == false) {
-				console.log('');
-				console.log('');
-				console.log('');
-				currentNode = queue.dequeue();
-				console.log('Current Node', currentNode.getValue());
+			queue = new SCG.Library.Queue({value:currentNode}); //Add the first node to the queue
+			bfs = currentNode.getValue() + " "; //
 
-				console.log('Current Neighbors:');
-				var currentNeighbors = currentNode.getSortedNeighbors();
-				//Log Neighbors
-				for(var k = 0, kLen = currentNeighbors.length; k < kLen; k++) {
-					console.log(currentNeighbors[k].getValue());
-				}
-				
+			while(queue.isEmpty() == false) {
+				currentNode = queue.dequeue();
+				currentNeighbors = currentNode.getSortedNeighbors();
+
 				for(var j = 0, jLen = currentNeighbors.length; j < jLen; j++) {
-					var currentNeighbor = currentNeighbors[j];
-					console.log('Looking at Neighbor', currentNeighbor.getValue());
-					
-					if(currentNeighbor.getCustomAttr('visited') == true) {
-						console.log('This neighbor has been visited. Skipping');
-					} else {
-						console.log('This neighbor has not been visited. Adding to the queue');
+					currentNeighbor = currentNeighbors[j];
+
+					if(currentNeighbor.getCustomAttr('visited') != true) {
 						bfs += currentNeighbor.getValue() + " ";
 						currentNeighbor.setCustomAttr({visited:true});
 						queue.enqueue(currentNeighbor);
 					}
 				}
-
-				console.log('Finished looking at Neighbor ', currentNode.getValue());
-				console.log('The current bfs string is: ', bfs);
-				console.log('The current queue is: ');
-				queue.map(function(node){console.log(node.getValue().getValue())});
 			}
-			
+
+			//Take off last " " (space) on the string if any
 			if(bfs[bfs.length-1] == " ") {
 				bfs = bfs.slice(0, bfs.length - 1);
 			}
-		
+
 			return bfs;
 		};
 	};
@@ -164,27 +161,27 @@ SCG.Library.GraphNode = (function() {
 			var keys;
 			var currentNodeValue;
 			var sortedArray = [];
-			
+
 			//Get Node Values and put into object hash
 			for(var i = 0, iLen = neighbors.length; i < iLen; i++) {
 				currentNodeValue = neighbors[i].getValue();
 				unsortedObjectHash[currentNodeValue] = neighbors[i];
 			}
-			
+
 			//Get Keys from object hash
 			keys = Object.keys(unsortedObjectHash);
-			
+
 			//Sort Keys
 			keys.sort();
-			
+
 			//Create sorted array with objects
 			for(var i = 0, iLen = keys.length; i < iLen; i++) {
 				sortedArray.push(unsortedObjectHash[keys[i]]);
 			}
-			
+
 			return sortedArray;
 		};
-		
+
 		this.setCustomAttr = function(customAttr) {
 			if(customAttr) {
 				for(attr in customAttr) {

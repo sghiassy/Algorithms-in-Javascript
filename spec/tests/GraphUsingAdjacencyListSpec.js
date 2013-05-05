@@ -176,4 +176,62 @@ describe("Graph using Adjacency List", function() {
 
 		expect(graph.bfs('E')).toEqual("E B C G A D F H");
 	});
+	
+	it("should be able to find the shortest path through a maze", function() {
+		//http://lnk.ghiassy.com/13VbO7w
+
+		graph.addNode('A');
+		graph.addNode('B');
+		graph.addNode('C');
+		graph.addNode('D');
+		graph.addNode('E');
+		graph.addNode('F');
+		graph.addNode('G');
+		graph.addNode('H');
+		graph.addNode('I');
+		graph.addNode('J');
+		graph.addNode('K');
+		graph.addNode('L');
+		graph.addNode('M');
+		graph.addNode('N');
+		graph.addNode('O');
+		graph.addNode('P');
+		graph.addNode('Q');
+		graph.addNode('R');
+		graph.addNode('S');
+		graph.addNode('T');
+		graph.addNode('U');
+		graph.addNode('V');
+		graph.addNode('W');
+		graph.addNode('X');
+		graph.addNode('Y');
+		
+		graph.connect('A', 'B');
+		graph.connect('B', 'G');
+		graph.connect('B', 'C');
+		graph.connect('C', 'H');
+		graph.connect('C', 'D');
+		graph.connect('D', 'E');
+		graph.connect('E', 'J');
+		graph.connect('F', 'K');
+		graph.connect('F', 'G');
+		graph.connect('H', 'M');
+		graph.connect('H', 'I');
+		graph.connect('I', 'N');
+		graph.connect('J', 'O');
+		graph.connect('K', 'P');
+		graph.connect('L', 'M');
+		graph.connect('N', 'S');
+		graph.connect('O', 'T');
+		graph.connect('P', 'U');
+		graph.connect('P', 'Q');
+		graph.connect('Q', 'R');
+		graph.connect('R', 'S');
+		graph.connect('U', 'V');
+		graph.connect('V', 'W');
+		graph.connect('X', 'S');
+		graph.connect('X', 'Y');
+		
+		expect(graph.print()).toEqual("A: B\nB: A C G\nC: B D H\nD: C E\nE: D J\nF: G K\nG: B F\nH: C I M\nI: H N\nJ: E O\nK: F P\nL: M\nM: H L\nN: I S\nO: J T\nP: K Q U\nQ: P R\nR: Q S\nS: N R X\nT: O\nU: P V\nV: U W\nW: V\nX: S Y\nY: X\n");
+	});
 });
