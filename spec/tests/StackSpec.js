@@ -1,12 +1,24 @@
 describe("Stack", function() {
+	var stack; 
+	
 	beforeEach(function() {
-		window.stack = new SCG.Library.Stack();
+		stack = new SCG.Library.Stack();
 	});
 
 	it("should be undefined on instantiation", function() {
 		expect(stack.pop()).toEqual(undefined);
 		expect(stack.pop()).toEqual(undefined);
 		expect(stack.pop()).toEqual(undefined);
+		expect(stack.pop()).toEqual(undefined);
+	});
+	
+	it("should be able to take a value on instantiation", function() {
+		stack = new SCG.Library.Stack({value:654});
+		expect(stack.pop()).toEqual(654);
+	});
+	
+	it("should reject a value on instantiation if it is not an object", function() {
+		stack = new SCG.Library.Stack(654);
 		expect(stack.pop()).toEqual(undefined);
 	});
 

@@ -17,6 +17,11 @@ describe("Singly Linked Node", function() {
 		expect(linkedNode.getNextNode()).toEqual(undefined);
 	});
 	
+	it("should reject taking a value on instantiation if it is not an object", function() {
+		linkedNode = new SCG.Library.SinglyLinkedNode(5);
+		expect(linkedNode.getValue()).toEqual(undefined);
+	});
+	
 	it("should be able to link to another node on instantion", function() {
 		nextLinkedNode = new SCG.Library.SinglyLinkedNode({value:10});
 		linkedNode = new SCG.Library.SinglyLinkedNode({nextNode: nextLinkedNode});

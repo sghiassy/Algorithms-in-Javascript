@@ -121,6 +121,49 @@ SCG.Library.Graph = (function() {
 
 			return bfs;
 		};
+		
+		this.dfs = function(startNode) {
+			var currentNode, queue, bfs, currentNeighbors, currentNeighbor, nonVisitedNeighbor;
+
+			if(this.isEmpty() == true) {
+				return "";
+			}
+
+			//Setup for Algorithm
+			currentNode = getStartingNode(edgeNodes, startNode); //Get either the first node, or the node specified in startNode
+			currentNode.setCustomAttr({visited:true}); //Make the first node as visited
+			stack = new SCG.Library.Stack({value:currentNode}); //Add the first node to the queue
+			bfs = currentNode.getValue() + " "; //
+
+			while(stack.isEmpty() == false) {
+				currentNode = stack.pop();
+				stack.push(currentNode);
+
+				currentNeighbors = currentNode.getSortedNeighbors();
+				nonVisitedNeighbor = undefined;
+				for(var i = 0, iLen = currentNeighbors.length; i < iLen; i++) {
+					if(currentNeighbors[i].getCustomAttr('visited') != true) {
+						nonVisitedNeighbor = currentNeighbors[i];
+						break;
+					}
+				}
+				
+				if(nonVisitedNeighbor == undefined) {
+					stack.pop();
+				} else {
+					bfs += nonVisitedNeighbor.getValue() + " ";
+					stack.push(nonVisitedNeighbor);
+					nonVisitedNeighbor.setCustomAttr({visited:true});
+				}
+			}
+
+			//Take off last " " (space) on the string if any
+			if(bfs[bfs.length-1] == " ") {
+				bfs = bfs.slice(0, bfs.length - 1);
+			}
+
+			return bfs;
+		}
 	};
 })();
 

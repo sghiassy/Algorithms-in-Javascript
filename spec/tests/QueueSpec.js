@@ -30,6 +30,19 @@ describe("Queue", function() {
 		expect(queue.dequeue()).toEqual(5);
 	});
 	
+	it("should dequeue items in first in first out order", function() {
+		queue.enqueue(1);
+		queue.enqueue(2);
+		queue.enqueue(3);
+		queue.enqueue(4);
+		queue.enqueue(5);
+		expect(queue.dequeue()).toEqual(1);
+		expect(queue.dequeue()).toEqual(2);
+		expect(queue.dequeue()).toEqual(3);
+		expect(queue.dequeue()).toEqual(4);
+		expect(queue.dequeue()).toEqual(5);
+	});
+	
 	it("should be able to pop the oldest entered value, even when the value was given during instantiation", function() {
 		window.queue = new SCG.Library.Queue({value:5});
 		queue.enqueue(3);

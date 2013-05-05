@@ -147,6 +147,7 @@ describe("Graph using Adjacency List", function() {
 		expect(graph.bfs()).toEqual("A B S C G D E F H");
 	});
 	
+	
 	it("should be able to return a breadth-first-search representation of the graph when an initial node is supplied", function() {
 		graph.addNode('A');
 		graph.addNode('B');
@@ -233,5 +234,66 @@ describe("Graph using Adjacency List", function() {
 		graph.connect('X', 'Y');
 		
 		expect(graph.print()).toEqual("A: B\nB: A C G\nC: B D H\nD: C E\nE: D J\nF: G K\nG: B F\nH: C I M\nI: H N\nJ: E O\nK: F P\nL: M\nM: H L\nN: I S\nO: J T\nP: K Q U\nQ: P R\nR: Q S\nS: N R X\nT: O\nU: P V\nV: U W\nW: V\nX: S Y\nY: X\n");
+	});
+	
+	it("should be able to return a depth-first-search representation of the graph", function() {
+		graph.addNode('A');
+		graph.addNode('B');
+		graph.addNode('C');
+		graph.addNode('D');
+		graph.addNode('E');
+		graph.addNode('F');
+		graph.addNode('G');
+		graph.addNode('H');
+		
+		graph.connect('A', 'B');
+		graph.connect('A', 'D');
+		graph.connect('A', 'G');
+		
+		graph.connect('B', 'E');
+		graph.connect('B', 'F');
+		
+		graph.connect('C', 'F');
+		graph.connect('C', 'H');
+		
+		graph.connect('D', 'F');
+		
+		graph.connect('E', 'G');
+
+		expect(graph.print()).toEqual("A: B D G\nB: A E F\nC: F H\nD: A F\nE: B G\nF: B C D\nG: A E\nH: C\n");
+
+		expect(graph.dfs()).toEqual("A B E G F C H D");
+	});
+	
+	it("should be able to return a depth-first-search representation of the graph", function() {
+		graph.addNode('A');
+		graph.addNode('B');
+		graph.addNode('C');
+		graph.addNode('D');
+		graph.addNode('E');
+		graph.addNode('F');
+		graph.addNode('G');
+		graph.addNode('H');
+		graph.addNode('S');
+		
+		graph.connect('A', 'B');
+		graph.connect('A', 'S');
+		
+		graph.connect('S', 'C');
+		graph.connect('S', 'G');
+		
+		graph.connect('G', 'H');
+		graph.connect('G', 'F');
+		
+		graph.connect('H', 'E');
+		
+		graph.connect('E', 'C');
+		
+		graph.connect('C', 'F');
+		graph.connect('C', 'D');
+
+		expect(graph.print()).toEqual("A: B S\nB: A\nC: D E F S\nD: C\nE: C H\nF: C G\nG: F H S\nH: E G\nS: A C G\n");
+
+		expect(graph.dfs()).toEqual("A B S C D E H G F");
 	});
 });

@@ -7,18 +7,15 @@ SCG.Library.Stack = (function() {
 
 	//shared private variable
 
-	return function() {
-		
+	return function(initialValue) {
 		var HEAD = undefined;
-		
+
 		this.push = function(val) {
 			if(HEAD == undefined) {
-				HEAD = new SCG.Library.SinglyLinkedNode();
-				HEAD.setValue(val);
+				HEAD = new SCG.Library.SinglyLinkedNode({value:val});
 			} else {
 				var curPointer = HEAD;
-				var node = new SCG.Library.SinglyLinkedNode();
-				node.setValue(val);
+				var node = new SCG.Library.SinglyLinkedNode({value:val});
 				
 				while(curPointer.getNextNode() != undefined) {
 					curPointer = curPointer.getNextNode();
@@ -44,10 +41,10 @@ SCG.Library.Stack = (function() {
 					trailingPointer = trailingPointer.getNextNode();
 					curPointer = curPointer.getNextNode();
 				}
-				
+
 				nodeValue = curPointer.getValue();
 				trailingPointer.setNextNode(undefined);
-				
+
 				return nodeValue;
 			}
 		};
@@ -72,5 +69,23 @@ SCG.Library.Stack = (function() {
 				return string;
 			}
 		};
+
+		this.isEmpty = function() {
+			if(HEAD == undefined) {
+				return true;
+			} else {
+				return false;
+			}
+		};
+
+		//Initialization Script
+		if(initialValue) {
+			if(initialValue.value) {
+				this.push(initialValue.value);
+			} else {
+				console.error('Error 3SXCD: You need to provide an original value wrapped in an object');
+				return false;
+			}
+		}
 	};
 })();
