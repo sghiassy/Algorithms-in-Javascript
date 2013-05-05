@@ -1,0 +1,12 @@
+{
+  "name": "algo",
+  "description": "Explorations in Javascript Data Structures and Algorithms",
+  "version": "0.2.0",
+  "author": {
+    "name": "Shaheen Ghiassy",
+    "url": "https://github.com/sghiassy/Algorithms-in-Javascript"
+  },
+  "dependencies": {
+      "grunt": "*"
+  }
+}
