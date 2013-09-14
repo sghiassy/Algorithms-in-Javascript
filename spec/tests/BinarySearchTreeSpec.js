@@ -20,20 +20,34 @@ describe("Binary Search Tree", function() {
 		expect(tree.printBreadthFirst()).toEqual("15 11 20 5");
 	});
 	
-	describe("Depth First Preorder Search", function() {
-		it("should iterate over a tree correctly", function() {
-			var bst = tree; //alias
+	it("should be able to do a depth first traversal preorder", function() {
+		var bst = tree; //alias
 
-			bst.insert(100);
-			bst.insert(150);
-			bst.insert(125);
-			bst.insert(175);
-			bst.insert(110);
-			bst.insert(50);
-			bst.insert(75);
-			bst.insert(25);
+		bst.insert(100);
+		bst.insert(150);
+		bst.insert(125);
+		bst.insert(175);
+		bst.insert(110);
+		bst.insert(50);
+		bst.insert(75);
+		bst.insert(25);
 
-			expect(bst.printDepthFirstPreorder()).toEqual("100,50,25,75,150,125,110,175");
-		});
+		expect(bst.printDepthFirstPreorder()).toEqual("100,50,25,75,150,125,110,175");
+	});
+
+	it("should be able to find the lowest common denominator", function() {
+		var bst = tree; //alias
+
+		bst.insert(20);
+		bst.insert(8);
+		bst.insert(22);
+		bst.insert(4);
+		bst.insert(12);
+		bst.insert(10);
+		bst.insert(14);
+
+		expect(bst.printDepthFirstPreorder()).toEqual("20,8,4,12,10,14,22");
+	
+		expect(bst.lowestCommonDenominator(4, 10)).toEqual(8);
 	});
 });

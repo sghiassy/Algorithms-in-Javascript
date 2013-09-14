@@ -103,5 +103,23 @@ SCG.Library.BinarySearchTree = (function() {
 		this.printDepthFirstPostorder = function() {
 			
 		};
+		
+		this.lowestCommonDenominator = function(node1Val, node2Val) {
+			var carryOn = true;
+			var curPointer = HEAD;
+
+			while(carryOn) {
+				var headValue = curPointer.getValue();
+
+				if(headValue > node1Val && headValue > node2Val) {
+					curPointer = curPointer.getLeftNode();
+				} else if (headValue < node1Val && headValue < node2Val) {
+					curPoitner = curPointer.getRightNode();
+				} else {
+					carryOn = false;
+					return curPointer.getValue();
+				}
+			}
+		};
 	};
 })();
