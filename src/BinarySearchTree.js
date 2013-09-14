@@ -69,8 +69,31 @@ SCG.Library.BinarySearchTree = (function() {
 			return printString;
 		};
 
-		this.printDepthFirstPreorder = function() {
-			
+		this.printDepthFirstPreorder = function(node) {
+			var printString = "";
+
+			if(node == undefined) {
+				printString += this.printDepthFirstPreorder(HEAD);
+
+				if(printString.charAt(printString.length - 1) == ",") {
+					printString = printString.slice(0,printString.length - 1);
+				}
+			} else {
+				printString += node.getValue() + ",";
+
+				var leftNode = node.getLeftNode();
+				var rightNode = node.getRightNode();
+
+				if(leftNode) {
+					printString += this.printDepthFirstPreorder(leftNode);
+				}
+
+				if(rightNode) {
+					printString += this.printDepthFirstPreorder(rightNode);
+				}
+			}
+
+			return printString;
 		};
 
 		this.printDepthFirstInorder = function() {
