@@ -27,12 +27,11 @@ SCG.Library.BinarySearchTree = (function() {
 				node.setRightNode(newNode);
 			} else {
 				console.log('on no, something wen\'t wrong');
-				debugger;
 			}
 		};
 
 		this.insert = function(value) {
-			if(HEAD == undefined) {
+			if(HEAD === undefined) {
 				HEAD = new SCG.Library.SinglyLinkedBinaryNode({value:value});
 			} else {
 				insertNode(HEAD, value);
@@ -44,7 +43,7 @@ SCG.Library.BinarySearchTree = (function() {
 			var queue = new SCG.Library.Queue();
 			var printString = "";
 
-			if(curPointer != undefined) {
+			if(curPointer !== undefined) {
 				queue.enqueue(curPointer);
 
 				while(!queue.isEmpty()) {
@@ -72,14 +71,14 @@ SCG.Library.BinarySearchTree = (function() {
 		this.printDepthFirstPreorder = function(node) {
 			var printString = "";
 
-			if(node == undefined) {
+			if(node === undefined) {
 				printString += this.printDepthFirstPreorder(HEAD);
 
-				if(printString.charAt(printString.length - 1) == ",") {
-					printString = printString.slice(0,printString.length - 1);
+				if(printString[printString.length-1] === " ") {
+					printString = printString.slice(0, -1);
 				}
 			} else {
-				printString += node.getValue() + ",";
+				printString += node.getValue() + " ";
 
 				var leftNode = node.getLeftNode();
 				var rightNode = node.getRightNode();
@@ -96,8 +95,31 @@ SCG.Library.BinarySearchTree = (function() {
 			return printString;
 		};
 
-		this.printDepthFirstInorder = function() {
-			
+		this.printDepthFirstInorder = function(node) {
+			var printString = "";
+
+			if(node === undefined) {
+				printString += this.printDepthFirstInorder(HEAD);
+
+				if(printString[printString.length - 1] === " ") {
+					printString = printString.slice(0, -1);
+				}
+			} else {
+				var leftNode = node.getLeftNode();
+				var rightNode = node.getRightNode();
+
+				if(leftNode) {
+					printString += this.printDepthFirstInorder(leftNode);
+				}
+
+				printString += node.getValue() + " ";
+
+				if(rightNode) {
+					printString += this.printDepthFirstInorder(rightNode);
+				}
+			}
+
+			return printString;
 		};
 
 		this.printDepthFirstPostorder = function() {

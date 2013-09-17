@@ -13,41 +13,77 @@ describe("Binary Search Tree", function() {
 	});
 	
 	it("should always stay true", function() {
-		tree.insert(15);
-		tree.insert(11);
-		tree.insert(20);
-		tree.insert(5);
-		expect(tree.printBreadthFirst()).toEqual("15 11 20 5");
+		// Tree Illustration: http://lnk.ghiassy.com/1827RkS
+		tree.insert(8);
+		tree.insert(3);
+		tree.insert(10);
+		tree.insert(1);
+		tree.insert(6);
+		tree.insert(14);
+		tree.insert(4);
+		tree.insert(7);
+		tree.insert(13);
+
+		expect(tree.printBreadthFirst()).toEqual("8 3 10 1 6 14 4 7 13");
 	});
 	
 	it("should be able to do a depth first traversal preorder", function() {
-		var bst = tree; //alias
+		// Tree Illustration: http://lnk.ghiassy.com/1827RkS
+		tree.insert(8);
+		tree.insert(3);
+		tree.insert(10);
+		tree.insert(1);
+		tree.insert(6);
+		tree.insert(14);
+		tree.insert(4);
+		tree.insert(7);
+		tree.insert(13);
 
-		bst.insert(100);
-		bst.insert(150);
-		bst.insert(125);
-		bst.insert(175);
-		bst.insert(110);
-		bst.insert(50);
-		bst.insert(75);
-		bst.insert(25);
+		expect(tree.printDepthFirstPreorder()).toEqual("8 3 1 6 4 7 10 14 13");
+	});
+	
+	it("should be able to do a depth first traversal inorder", function() {
+		// Tree Illustration: http://lnk.ghiassy.com/1827RkS
+		tree.insert(8);
+		tree.insert(3);
+		tree.insert(10);
+		tree.insert(1);
+		tree.insert(6);
+		tree.insert(14);
+		tree.insert(4);
+		tree.insert(7);
+		tree.insert(13);
 
-		expect(bst.printDepthFirstPreorder()).toEqual("100,50,25,75,150,125,110,175");
+		expect(tree.printDepthFirstInorder()).toEqual("1 3 4 6 7 8 10 13 14");
+	});
+	
+	it("should be able to do a depth first traversal postorder", function() {
+		// Tree Illustration: http://lnk.ghiassy.com/1827RkS
+		tree.insert(8);
+		tree.insert(3);
+		tree.insert(10);
+		tree.insert(1);
+		tree.insert(6);
+		tree.insert(14);
+		tree.insert(4);
+		tree.insert(7);
+		tree.insert(13);
+
+		//expect(tree.printDepthFirstPostorder()).toEqual("1 4 7 6 3 13 14 10 8");
 	});
 
 	it("should be able to find the lowest common denominator", function() {
-		var bst = tree; //alias
+		// Tree Illustration: http://lnk.ghiassy.com/1827RkS
+		tree.insert(8);
+		tree.insert(3);
+		tree.insert(10);
+		tree.insert(1);
+		tree.insert(6);
+		tree.insert(14);
+		tree.insert(4);
+		tree.insert(7);
+		tree.insert(13);
 
-		bst.insert(20);
-		bst.insert(8);
-		bst.insert(22);
-		bst.insert(4);
-		bst.insert(12);
-		bst.insert(10);
-		bst.insert(14);
-
-		expect(bst.printDepthFirstPreorder()).toEqual("20,8,4,12,10,14,22");
-	
-		expect(bst.lowestCommonDenominator(4, 10)).toEqual(8);
+		expect(tree.lowestCommonDenominator(1, 7)).toEqual(3);
 	});
 });
