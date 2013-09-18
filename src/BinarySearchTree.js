@@ -123,10 +123,6 @@ SCG.Library.BinarySearchTree = (function() {
 		};
 
 		this.printDepthFirstPostorder = function(node) {
-			//starter
-				//base case
-				//iteration
-				
 			var printString = "";
 
 			if(node === undefined) {
