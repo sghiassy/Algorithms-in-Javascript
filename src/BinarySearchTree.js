@@ -122,10 +122,37 @@ SCG.Library.BinarySearchTree = (function() {
 			return printString;
 		};
 
-		this.printDepthFirstPostorder = function() {
-			
+		this.printDepthFirstPostorder = function(node) {
+			//starter
+				//base case
+				//iteration
+				
+			var printString = "";
+
+			if(node === undefined) {
+				printString += this.printDepthFirstPostorder(HEAD);
+				
+				if(printString[printString.length - 1] === " ") {
+					printString = printString.slice(0, -1);
+				}
+			} else {
+				var leftNode = node.getLeftNode();
+				var rightNode = node.getRightNode();
+
+				if(leftNode) {
+					printString += this.printDepthFirstPostorder(leftNode);
+				}
+
+				if(rightNode) {
+					printString += this.printDepthFirstPostorder(rightNode);
+				}
+
+				printString += node.getValue() + " ";
+			}
+
+			return printString;
 		};
-		
+
 		this.lowestCommonDenominator = function(node1Val, node2Val) {
 			var carryOn = true;
 			var curPointer = HEAD;
@@ -136,7 +163,7 @@ SCG.Library.BinarySearchTree = (function() {
 				if(headValue > node1Val && headValue > node2Val) {
 					curPointer = curPointer.getLeftNode();
 				} else if (headValue < node1Val && headValue < node2Val) {
-					curPoitner = curPointer.getRightNode();
+					curPointer = curPointer.getRightNode();
 				} else {
 					carryOn = false;
 					return curPointer.getValue();

@@ -69,7 +69,7 @@ describe("Binary Search Tree", function() {
 		tree.insert(7);
 		tree.insert(13);
 
-		//expect(tree.printDepthFirstPostorder()).toEqual("1 4 7 6 3 13 14 10 8");
+		expect(tree.printDepthFirstPostorder()).toEqual("1 4 7 6 3 13 14 10 8");
 	});
 
 	it("should be able to find the lowest common denominator", function() {
